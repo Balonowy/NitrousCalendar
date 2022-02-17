@@ -5,7 +5,7 @@ A simple calendar for laughing gas users.
 
 ## About the project
 
-![Screenshot](https://github.com/Balonowy/NitrousCalendar/blob/f827a6b340684973a8943d1f21beb0433c66ef61/Assets/screenshot-en.PNG?raw=true)
+![Screenshot](https://raw.githubusercontent.com/Balonowy/NitrousCalendar/master/Assets/screenshot-en.PNG)
 
 This small program allows me to keep track of my Nitrous Oxide usage. It reminds me about taking vitamin B12 and suggests pauses, when I overuse gas. I decided to publish it, so everyone can use it and contribute. How to use it?
 
