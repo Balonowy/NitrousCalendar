@@ -10,7 +10,7 @@ A simple calendar for laughing gas users.
 This small program allows me to keep track of my Nitrous Oxide usage. It reminds me about taking vitamin B12 and suggests pauses, when I overuse gas. I decided to publish it, so everyone can use it and contribute. How to use it?
 
 #### Tabs and calendar
-You can choose a different month by changing the selected tab. By default, the current month will be selected. Below tabs, you can see a button for every day from that selected month. Clicking the button will cause a context menu to pop-up. Use the menu items according to your B12/N2O use. Your choices will be stored in `Calendar.v1` file, which will be placed inside your current working directory.
+You can choose a different month by changing the selected tab. By default, the current month will be selected. Below tabs, you can see a button for every day from that selected month. Clicking the button will cause a context menu to pop-up. Use the menu items according to your B12/N2O use. Your choices will be stored in `Calendar.txt` file, which will be placed inside your current working directory.
 
 #### Top right corner
 Here you will see a small tip about you laughing gas use.

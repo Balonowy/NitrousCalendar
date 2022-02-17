@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -27,16 +28,22 @@ namespace NitrousCalendar
                 TabPage month = new TabPage(monthsCounter.ToString(Properties.Strings.TabDateFormat));
                 month.Tag = monthsCounter.Month;
 
-                FlowLayoutPanel flpDays = new FlowLayoutPanel
+                TableLayoutPanel tlpDays = new TableLayoutPanel()
                 {
-                    Dock = DockStyle.Fill
+                    ColumnCount = 7,
+                    Anchor = AnchorStyles.None,
+                    AutoSize = true,
                 };
 
+                DayOfWeek firstDay = DayOfWeek.Sunday;
                 for (int day = 0; day < DateTime.DaysInMonth(monthsCounter.Year, monthsCounter.Month); day++)
                 {
                     var date = monthsCounter.AddDays(day);
                     var entry = manager[date];
                     var today = DateTime.Now.Date == date;
+
+                    if (day == 0)
+                        firstDay = date.DayOfWeek;
 
                     if (today)
                         currentMonthsTab = month;
@@ -45,7 +52,7 @@ namespace NitrousCalendar
                     {
                         Tag = date,
                         Size = new Size(64, 64),
-                        Text = date.ToString(Properties.Strings.DayDateFormat),
+                        Text = date.Day.ToString(),
                         ContextMenuStrip = cmsDay,
                     };
                     UpdateButton(btn, date, entry);
@@ -54,11 +61,53 @@ namespace NitrousCalendar
                     {
                         cmsDay.Show(btn, new Point(btn.Width - cmsDay.Width, btn.Height));
                     };
-                    flpDays.Controls.Add(btn);
+                    tlpDays.Controls.Add(btn);
                 }
 
-                month.Controls.Add(flpDays);
+                if (firstDay == DayOfWeek.Sunday)
+                    firstDay = (DayOfWeek)7;
+                int additionalPaddingDays = firstDay - DayOfWeek.Monday;
+                for (int j = 0; j < additionalPaddingDays; j++)
+                {
+                    Label placeholder = new Label()
+                    {
+                        Tag = $"p{j}",
+                        Size = new Size(64, 64),
+                    };
+                    tlpDays.Controls.Add(placeholder);
+                    tlpDays.Controls.SetChildIndex(placeholder, 0);
+                }
+
+                for (int j = 0; j < 7; j++)
+                {
+                    var day = (DayOfWeek)(j + 1);
+                    if ((int)day == 7)
+                        day = DayOfWeek.Sunday;
+                    var text = DateTimeFormatInfo.CurrentInfo.GetAbbreviatedDayName(day);
+
+                    Color textColor = Color.Black;
+                    if (day == DayOfWeek.Sunday)
+                        textColor = Color.FromArgb(255, 97, 97);
+                    else if (day == DayOfWeek.Saturday)
+                        textColor = Color.FromArgb(135, 135, 135);
+
+                    Label header = new Label()
+                    {
+                        Tag = Name = $"h{j}",
+                        ForeColor = textColor,
+                        Size = new Size(64, 24),
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Bold),
+                        Text = text,
+                    };
+                    tlpDays.Controls.Add(header);
+                    tlpDays.Controls.SetChildIndex(header, j);
+                }
+
+                month.Controls.Add(tlpDays);
                 tcMonths.TabPages.Add(month);
+                tlpDays.Location = Location = new Point((month.ClientSize.Width / 2) - (tlpDays.Width / 2), (month.ClientSize.Height / 2) - (tlpDays.Height / 2));
+
                 monthsCounter = monthsCounter.AddMonths(1);
             }
 

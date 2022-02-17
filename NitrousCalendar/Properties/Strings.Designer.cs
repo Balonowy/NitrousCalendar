@@ -19,7 +19,7 @@ namespace NitrousCalendar.Properties {
     // przez narzędzie, takie jak ResGen lub Visual Studio.
     // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -61,20 +61,11 @@ namespace NitrousCalendar.Properties {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Calendar.v1.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Calendar.txt.
         /// </summary>
         internal static string CalendarFileName {
             get {
                 return ResourceManager.GetString("CalendarFileName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu dd.
-        /// </summary>
-        internal static string DayDateFormat {
-            get {
-                return ResourceManager.GetString("DayDateFormat", resourceCulture);
             }
         }
         

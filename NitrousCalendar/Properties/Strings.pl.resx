@@ -118,10 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CalendarFileName" xml:space="preserve">
-    <value>Calendar.v1</value>
-  </data>
-  <data name="DayDateFormat" xml:space="preserve">
-    <value>dd</value>
+    <value>Calendar.txt</value>
   </data>
   <data name="DaysSince" xml:space="preserve">
     <value>Ilość dni od ostatniej imprezy z podtlenkiem: {0}</value>
